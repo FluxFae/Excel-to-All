@@ -7,7 +7,7 @@ Key Features:
 ✅ Data Filtering: Integrated filtering capabilities allow data refinement before export, ensuring precise output datasets.
 ✅ Modern Stack: Built using React for the frontend UI, TypeScript for strong typing, and Vite for rapid development.
 
-#INSTALLATION
+## Instalation
 
 # React + TypeScript + Vite
 
