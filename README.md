@@ -1,4 +1,14 @@
-<<<<<<< HEAD
+Description:
+A powerful desktop utility built with React, TypeScript, and Vite designed for seamless data migration from Excel spreadsheets. This app allows users to upload an .xlsx file and instantly transform the contents into numerous formats.
+
+Key Features:
+
+✅ Multi-Format Output: Supports conversion to JSON, CSV, Markdown (MD), SQLite, and other specified types.
+✅ Data Filtering: Integrated filtering capabilities allow data refinement before export, ensuring precise output datasets.
+✅ Modern Stack: Built using React for the frontend UI, TypeScript for strong typing, and Vite for rapid development.
+
+#INSTALLATION
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -72,7 +82,3 @@ export default defineConfig([
   },
 ])
 ```
-=======
-# Excel-to-All
-A powerful desktop utility built with React, TypeScript, and Vite designed for seamless data migration from Excel spreadsheets. This app allows users to upload an .xlsx file and instantly transform the contents into numerous formats.  Key Features:  ✅ Multi-Format Output: Supports conversion to JSON, CSV, Markdown (MD), SQLite and others
->>>>>>> 04896ee15fd48e46c5ce628009ca69bcad02db95
