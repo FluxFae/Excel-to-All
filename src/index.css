@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ─── Class-based dark mode ─── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Semantic tokens: Light theme (default) ─── */
+:root {
+  --bg-base: #F8F8F8;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F0F0F0;
+  --bg-input: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-tertiary: #A0A0A0;
+  --border-default: #E0E0E0;
+  --border-hover: #C0C0C0;
+  --border-active: #D946A6;
+  --table-header-bg: #F0F0F0;
+  --table-stripe: #F7F7F7;
+  --row-hover: rgba(107, 31, 63, 0.05);
+  --nav-bg: #FFFFFF;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-raised: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-premium: 0 8px 24px rgba(0, 0, 0, 0.1), 0 0 12px rgba(107, 31, 63, 0.08);
+  --overlay: rgba(0, 0, 0, 0.25);
+  --drop-zone-bg: rgba(107, 31, 63, 0.03);
+  --drop-zone-active: rgba(217, 70, 166, 0.08);
+  --code-bg: #F3F4F6;
+}
+
+/* ─── Semantic tokens: Dark theme ─── */
+.dark {
+  --bg-base: #1A1A1A;
+  --bg-surface: #232323;
+  --bg-elevated: #2D2D2D;
+  --bg-input: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-tertiary: #5A5A5A;
+  --border-default: #3D3D3D;
+  --border-hover: #4A4A4A;
+  --border-active: #D946A6;
+  --table-header-bg: #1A1A1A;
+  --table-stripe: rgba(255, 255, 255, 0.02);
+  --row-hover: rgba(217, 70, 166, 0.04);
+  --nav-bg: #1A1A1A;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-raised: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-floating: 0 6px 20px rgba(0, 0, 0, 0.16);
+  --shadow-premium: 0 8px 24px rgba(0, 0, 0, 0.16), 0 0 16px rgba(107, 31, 63, 0.12);
+  --overlay: rgba(0, 0, 0, 0.4);
+  --drop-zone-bg: rgba(107, 31, 63, 0.06);
+  --drop-zone-active: rgba(217, 70, 166, 0.12);
+  --code-bg: #2D2D2D;
+}
+
+/* ─── Tailwind v4 theme tokens ─── */
+@theme {
+  /* Brand colors (constant across themes) */
+  --color-flux-wine: #6B1F3F;
+  --color-flux-burgundy: #8B2E5F;
+  --color-flux-magenta: #D946A6;
+  --color-flux-hover: #A01D6C;
+  --color-flux-active: #5A1633;
+  --color-flux-terracotta: #C97A47;
+  --color-flux-sage: #6B9E7F;
+  --color-flux-slate: #4A5E8C;
+  --color-ok: #10B981;
+  --color-warn: #F97316;
+  --color-danger: #EF4444;
+  --color-muted: #5A5A5A;
+
+  /* Semantic surface colors (dynamic) */
+  --color-surface-base: var(--bg-base);
+  --color-surface-card: var(--bg-surface);
+  --color-surface-elevated: var(--bg-elevated);
+  --color-surface-input: var(--bg-input);
+  --color-surface-nav: var(--nav-bg);
+  --color-surface-table-header: var(--table-header-bg);
+  --color-surface-table-stripe: var(--table-stripe);
+  --color-surface-drop: var(--drop-zone-bg);
+  --color-surface-drop-active: var(--drop-zone-active);
+  --color-surface-code: var(--code-bg);
+  --color-surface-overlay: var(--overlay);
+
+  /* Text colors (dynamic) */
+  --color-content-primary: var(--text-primary);
+  --color-content-secondary: var(--text-secondary);
+  --color-content-tertiary: var(--text-tertiary);
+
+  /* Border colors (dynamic) */
+  --color-edge: var(--border-default);
+  --color-edge-hover: var(--border-hover);
+  --color-edge-active: var(--border-active);
+
+  /* Row hover */
+  --color-surface-row-hover: var(--row-hover);
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Shadows */
+  --shadow-card: var(--shadow-card);
+  --shadow-raised: var(--shadow-raised);
+  --shadow-floating: var(--shadow-floating);
+  --shadow-premium: var(--shadow-premium);
+
+  /* Border radius scale */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+/* ─── Base styles ─── */
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+/* ─── Scrollbar styling ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: rgba(217, 70, 166, 0.25);
+  color: inherit;
+}
+
+/* ─── Utility classes for form inputs ─── */
+.text-input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+.text-input:focus {
+  border-color: #D946A6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 70, 166, 0.1);
+}
+.text-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.select-input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color 200ms ease-in-out;
+}
+.select-input:focus {
+  border-color: #D946A6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 70, 166, 0.1);
+}
+.select-input option {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
