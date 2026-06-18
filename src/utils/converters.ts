@@ -1,7 +1,7 @@
 import * as yaml from 'js-yaml';
 import type {
   JsonConfig, CsvConfig, SqlConfig, HtmlConfig,
-  MarkdownConfig, XmlConfig, YamlConfig,
+  MarkdownConfig, XmlConfig, YamlConfig, ExportFormat, FormatConfig,
 } from '../types';
 
 type Row = Record<string, unknown>;
@@ -168,10 +168,10 @@ export const defaultConfigs = {
 
 /* ─── Dispatch converter ─── */
 export function convert(
-  format: string,
+  format: ExportFormat,
   rows: Row[],
   headers: string[],
-  config: Record<string, unknown>,
+  config: FormatConfig[ExportFormat],
 ): string {
   switch (format) {
     case 'json': return toJson(rows, headers, config as unknown as JsonConfig);

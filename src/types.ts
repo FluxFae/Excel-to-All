@@ -86,3 +86,12 @@ export interface AppState {
   pageSize: number;
   currentPage: number;
 }
+
+import type {} from 'react';
+
+declare module 'react' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface HTMLAttributes<T> {
+    slot?: string;
+  }
+}

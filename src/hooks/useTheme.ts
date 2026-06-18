@@ -1,30 +1,25 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 type Theme = 'light' | 'dark';
 
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'dark';
-  const stored = localStorage.getItem('flux-theme') as Theme | null;
-  if (stored === 'light' || stored === 'dark') return stored;
-  return 'dark'; // Flux is dark-first
-}
-
 export function useTheme() {
-  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
+  // Synchronous initialization reading the final state left by the Web Component
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+  );
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('flux-theme', theme);
-  }, [theme]);
+    // Passive listening: React only re-renders when the agnostic component notifies
+    const handleThemeChange = () => {
+      setTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    };
 
-  const toggle = useCallback(() => {
-    setThemeState((t) => (t === 'dark' ? 'light' : 'dark'));
+    window.addEventListener('theme-changed', handleThemeChange);
+
+    return () => {
+      window.removeEventListener('theme-changed', handleThemeChange);
+    };
   }, []);
 
-  return { theme, toggle } as const;
+  return theme;
 }

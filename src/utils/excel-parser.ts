@@ -70,7 +70,7 @@ export function parseExcelFile(file: File): Promise<ParsedFile> {
           parsedAt: new Date(),
         });
       } catch (err) {
-        reject(new Error(`Failed to parse Excel file: ${(err as Error).message}`));
+        reject(new Error(`Failed to parse file: ${(err as Error).message}`));
       }
     };
 

@@ -27,6 +27,12 @@
   --drop-zone-bg: rgba(107, 31, 63, 0.03);
   --drop-zone-active: rgba(217, 70, 166, 0.08);
   --code-bg: #F3F4F6;
+  
+  /* Web Component theme overrides */
+  --theme-surface: var(--bg-surface);
+  --theme-border: var(--border-default);
+  --theme-text-primary: var(--text-primary);
+  --theme-text-secondary: var(--text-secondary);
 }
 
 /* ─── Semantic tokens: Dark theme ─── */
@@ -53,6 +59,12 @@
   --drop-zone-bg: rgba(107, 31, 63, 0.06);
   --drop-zone-active: rgba(217, 70, 166, 0.12);
   --code-bg: #2D2D2D;
+  
+  /* Web Component theme overrides */
+  --theme-surface: var(--bg-surface);
+  --theme-border: var(--border-default);
+  --theme-text-primary: var(--text-primary);
+  --theme-text-secondary: var(--text-secondary);
 }
 
 /* ─── Tailwind v4 theme tokens ─── */

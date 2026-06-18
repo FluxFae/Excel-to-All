@@ -1,8 +1,8 @@
 import { useState, useRef, useCallback } from 'react';
 import { useAppDispatch } from '../context/AppContext';
-import { parseExcelFile, formatFileSize } from '../utils/excel-parser';
+import { parseExcelFile } from '../utils/excel-parser';
 
-const ACCEPTED = '.xlsx,.xls,.xlsb,.xlsm,.csv';
+const ACCEPTED = '.xlsx,.xls,.xlsb,.xlsm,.csv,text/csv';
 
 const FORMAT_INFO = [
   { ext: 'JSON', desc: 'Structured data', color: 'text-flux-terracotta' },
@@ -57,7 +57,7 @@ export function UploadScreen() {
       {/* Hero */}
       <div className="text-center mb-8 sm:mb-12">
         <h1 className="text-3xl sm:text-4xl font-bold text-content-primary tracking-tight mb-3" style={{ letterSpacing: '-0.8px' }}>
-          Transform Your Excel Data
+          Transform Your Excel & CSV Data
         </h1>
         <p className="text-content-secondary text-base sm:text-lg max-w-xl mx-auto">
           Upload your spreadsheet and convert it to <span className="text-flux-magenta font-medium">7 different formats</span> with
@@ -101,7 +101,7 @@ export function UploadScreen() {
               </div>
 
               <p className="text-content-primary font-semibold text-base mb-1">
-                {dragging ? 'Drop your file here' : 'Drag & drop your Excel file'}
+                {dragging ? 'Drop your file here' : 'Drag & drop your Excel or CSV file'}
               </p>
               <p className="text-content-secondary text-sm mb-4">
                 or <span className="text-flux-magenta font-medium underline underline-offset-2">browse files</span>
