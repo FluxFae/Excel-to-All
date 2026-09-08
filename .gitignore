@@ -22,5 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-src/assets/logos/favicon.svg
-src/assets/design/DESIGN_*.md
+src/assets/logos/Isotype_Flux.svg
+src/assets/design/DESIGN.md
+# Local Pi runtime state
+.atl/
+.atl/skill-registry.md
+src/ui-core.d.ts
